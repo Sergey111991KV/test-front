@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemImage from './ItemImage'
+import ItemImage from '../ItemImage/ItemImage'
 import './ListImage.css'
 
 

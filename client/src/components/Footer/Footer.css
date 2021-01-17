@@ -1,7 +1,20 @@
 .footer {
     grid-area: footer;
-    position: relative;
-    bottom: -180px;
+   
+}
+
+.footerLine{
+    position: fixed;
+    height: 0px;
+    border: 1px solid #CCCCCC;
+    left: 20px;
+    right: 20px;
+    bottom: 56px;
+}
+
+.footerText{
+    position: fixed;
+    bottom: 12px;
     left: 45%;
     margin-right: -50%;
     font-family: "Roboto Condensed";
