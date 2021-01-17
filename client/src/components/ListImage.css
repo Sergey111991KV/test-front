@@ -1,0 +1,30 @@
+.listImage {
+    grid-area: list;
+   
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+
+    /* bottom: 118px;
+    position: relative;
+    top: 30px;
+    height: 100%;
+    background: #fc0;  */ 
+
+}
+
+@media (max-width: 530px) {
+    .listImage {
+       
+        grid-template-columns:   1fr;  
+       
+    }
+}
+
+@media  (min-width: 530px) and (max-width: 630px) {
+    .listImage {
+       
+        grid-template-columns:   repeat(2, 1fr);
+       
+    }
+}

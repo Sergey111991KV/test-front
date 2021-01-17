@@ -5,6 +5,8 @@ const app = express()
  
 const PORT = config.get('port') || 5000
 
+const GET_PHOTO = 'https://boiling-refuge-66454.herokuapp.com/images'
+
 app.use
 
 async function start () {
