@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from './redux/redux-store'
+import state from './redux/state'
+import {addComment, updateNewComment, stateModal} from './redux/state'
+
+
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App  appState={state}
+          addComment={addComment} 
+          updateNewComment={updateNewComment}
+          stateModal={stateModal}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );

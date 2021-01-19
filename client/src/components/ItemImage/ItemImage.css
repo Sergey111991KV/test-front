@@ -1,14 +1,6 @@
-.imageItem img {
+.image_item img {
     pointer-events: all;
     width: 229px;
     height: 142px;
 }
 
-@media (max-width: 530px) {
-    .listImage img{
-       
-        width: 280px;
-        height: 171px;
-       
-    }
-}

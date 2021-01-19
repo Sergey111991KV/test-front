@@ -1,0 +1,14 @@
+.modal_form {
+    display: inline-grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.input_param {
+    width: 332px;
+    height: 30px;
+}
+
+.button_send_comment {
+    width: 332px;
+    height: 30px;
+}

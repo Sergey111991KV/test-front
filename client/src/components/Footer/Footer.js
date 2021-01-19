@@ -6,8 +6,8 @@ const Footer = () => {
 
     return (
       <div  className='footer'> 
-        <div className='footerLine'></div>
-        <div className='footerText'> © 2018-2019</div>
+        <div className='footer_line'></div>
+        <div className='footer_text'> © 2018-2019</div>
       </div> 
     )
   }

@@ -1,0 +1,60 @@
+.modal_view {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgb(0,0,0, .7);
+}
+
+.modal_view.close {
+    height: 0;
+    display: none;
+}
+
+
+.modal_view.open {
+    height: 100%;
+}
+
+
+
+.modal_body{
+    position: relative;
+    top: 181px;
+    left: 75px;
+    right: 75px;
+    width: 610px;
+    height: 425px;
+
+    background: white;
+    display: inline-grid;
+    grid-template-columns: 60% 40%;
+    /* display: grid; */
+
+    /* grid-template-rows:  300px 200px;   */
+    /* grid-template-columns:   400px 200px;    */
+    /* grid-template-areas:    "image_comment chat"
+                            "input_form    chat"
+                         
+    ;  */
+}
+
+.image_modal {
+
+    width: 331px;
+    height: 205px;
+    /* left: 30px;
+    top: 30px; */
+}
+
+
+.modal_close {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-style: lighter;
+    font-weight: lighter;
+    font-size: 32px;
+    line-height: 22px;
+}

@@ -1,30 +1,20 @@
-.listImage {
+.list_image {
     grid-area: list;
-   
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 30px;
-
-    /* bottom: 118px;
-    position: relative;
-    top: 30px;
-    height: 100%;
-    background: #fc0;  */ 
-
 }
 
 @media (max-width: 530px) {
-    .listImage {
-       
+    .list_image {
         grid-template-columns:   1fr;  
         grid-row-gap: 30px;
     }
 }
 
 @media  (min-width: 530px) and (max-width: 740px) {
-    .listImage {
-       
+    .list_image {
         grid-template-columns:   repeat(2, 1fr);
         grid-column-gap: 20px;
         grid-row-gap: 30px;

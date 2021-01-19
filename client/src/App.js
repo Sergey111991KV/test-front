@@ -3,15 +3,26 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import ListImage from './components/ListImage/ListImage';
 import './App.css'
+import ModalView from './components/ModalView/ModalView';
 
 
-function App() {
+function App (props) {
 
   return (
     <div className='app-wrapper'>
       <Header/>
-      <ListImage />
+      <ListImage images={props.appState.images} stateModal={props.stateModal}/>
       <Footer />
+      <ModalView  isOpenedModal={props.appState.isOpenedModal} 
+                  comments={props.appState.comments} 
+                  form={props.appState.form}
+                  addComment={props.addComment}
+                  updateNewComment={props.updateNewComment}
+                  stateModal={props.stateModal}
+                  
+      ></ModalView>
+
+
     </div>
 
   )

@@ -1,0 +1,6 @@
+.comment_chat {
+    float: right;
+    right: 30px;
+    top: 30px;
+    overflow: auto;
+}

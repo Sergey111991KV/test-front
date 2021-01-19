@@ -1,27 +1,29 @@
+
 import React from 'react'
 import ItemImage from '../ItemImage/ItemImage'
 import './ListImage.css'
+import axios from 'axios'
 
 
 
-const ListImage = () => {
-    let list = 
-    [{id:237, url:"https://picsum.photos/id/237/300/200"},
-    {id:238,url:"https://picsum.photos/id/238/300/200"},
-    {id:239,url:"https://picsum.photos/id/239/300/200"},
-    {id:240,url:"https://picsum.photos/id/240/300/200"},
-    {id:241,url:"https://picsum.photos/id/241/300/200"},
-    {id:242,url:"https://picsum.photos/id/242/300/200"}]
 
-    let arrayImage = list.map(image => (<ItemImage urlImage={image.url} idImage={image.id}/>))
+   
+const ListImage = (props) => {
+  let ImageForClick = () => {
+    axios.get('https://boiling-refuge-66454.herokuapp.com/images').then(response => {
+      props.setImage(response.data.items)
+    })}
+    console.log(ImageForClick)
+    let arrayImage = props.images.map(image => (<ItemImage urlImage={image.url} idImage={image.id} stateModal={props.stateModal}/>))
     return (
-        <div className='listImage' >
-          
+        <div className='list_image' >
           {arrayImage}
       </div>
   
     )
   }
   
-  export default ListImage;
+export default ListImage;
+
+
   
