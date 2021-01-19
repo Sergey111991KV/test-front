@@ -4,16 +4,17 @@
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 30px;
+    
 }
 
-@media (max-width: 530px) {
+@media (max-width: 630px) {
     .list_image {
         grid-template-columns:   1fr;  
         grid-row-gap: 30px;
     }
 }
 
-@media  (min-width: 530px) and (max-width: 740px) {
+@media  (min-width: 630px) and (max-width: 950px) {
     .list_image {
         grid-template-columns:   repeat(2, 1fr);
         grid-column-gap: 20px;

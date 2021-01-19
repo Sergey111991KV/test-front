@@ -1,6 +1,19 @@
 .comment_chat {
-    float: right;
+    /* float: right;
     right: 30px;
-    top: 30px;
-    overflow: auto;
+    top: 30px; */
+    /* overflow: auto; */
+    /* padding: 20px; */
+    /* grid-area: chat; */
+    /* display: grid;  */
+    /* overflow-y: scroll; */
+    /* grid-auto-rows: 50px;
+  grid-gap: 10px;
+    overflow-y:scroll; */
+    /* display: table; */
+    /* overflow: scroll; */
+    /* display: inline-grid; */
+    /* display: inline-block; */
+    height: 250px;
+    overflow: scroll; 
 }

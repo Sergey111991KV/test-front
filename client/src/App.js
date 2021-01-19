@@ -7,18 +7,18 @@ import ModalView from './components/ModalView/ModalView';
 
 
 function App (props) {
-
   return (
     <div className='app-wrapper'>
       <Header/>
-      <ListImage images={props.appState.images} stateModal={props.stateModal}/>
+      <ListImage  images={props.appState.images} 
+                  dispatch={props.dispatch}
+                  />
       <Footer />
       <ModalView  isOpenedModal={props.appState.isOpenedModal} 
                   comments={props.appState.comments} 
                   form={props.appState.form}
                   addComment={props.addComment}
-                  updateNewComment={props.updateNewComment}
-                  stateModal={props.stateModal}
+                  dispatch={props.dispatch}
                   
       ></ModalView>
 

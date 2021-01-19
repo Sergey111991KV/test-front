@@ -12,11 +12,11 @@ const ItemImage = (props) => {
 
     let imageClick = (id) =>  {
         console.log(id)
-        props.stateModal()
+        props.dispatch({type: 'SWITCH-MODAL-VIEW', value: true})
       } 
     return (
       <div className='imageItem' >
-       <img src={props.urlImage}  onClick={ imageClick(props.idImage)}/>
+       <img src={props.urlImage}  onClick={() => imageClick(props.idImage)}/>
       </div>
   
     )

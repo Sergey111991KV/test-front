@@ -1,0 +1,21 @@
+.data {
+    font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 15px;
+display: flex;
+align-items: center;
+
+color: #999999;
+}
+
+.text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    
+    color: #000000; 
+}

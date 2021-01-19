@@ -1,7 +1,8 @@
-import {rerenderEntireTree} from '../redux/render'
 
-let state = {
 
+
+let store = {
+   _state : {
     images : [
         {id:237, url:"https://picsum.photos/id/237/300/200"},
         {id:238,url:"https://picsum.photos/id/238/300/200"},
@@ -16,44 +17,55 @@ let state = {
       textUserComment : 'Ваш комментарий'
     },
     comments  : [{id:153, text: "Крутая фотка", date: "1578054737927"},
-                  {id: 152, text: "Крутая фотка", date: "1578054737927"}]
+                  {id: 152, text: "Крутая фотка", date: "1578054737927"}],
+    mainImage: "https://boiling-refuge-66454.herokuapp.com/images/"  
+    },
+  _callSubscruber () {
+      console.log('state was change')
+    },
+  getState (){
+    return this._state
+  },
+  subscribe (observer) {
+    this._callSubscruber = observer
+  },
+  _stateModal (value) { 
+    this._state.isOpenedModal= value;
+    this._callSubscruber(this._state)
+     },
+  addComment () {
+      let today = new Date().toISOString().slice(0, 10)
+      let newComment = {
+        id : 1,
+        text :  this._state.form.textUserComment,
+        date : today
+      }
+      this.state.comments.push(newComment)
+      this.state.form.textUserComment = ''
+      this.callSubscruber(this.state)
+    },
+    updateNewComment (newComment) {
+      this.state.form.textUserComment = newComment
+      this.callSubscruber(this.state)
+      },
+    dispatch(action){
+      if (action.type === 'SWITCH-MODAL-VIEW'){
+          this._stateModal(action.value);
+          // this._callSubscruber(this._state)
+       
+       
+      }
+
     }
-
-  let today = new Date().toISOString().slice(0, 10)
   
-export  let stateModal = () => { 
-  switch (state.isOpenedModal) {
-    case true:
-      state.isOpenedModal= false;
-    case false:
-      state.isOpenedModal = true;
-    default: 
-    state.isOpenedModal= false;
-  }
-  rerenderEntireTree()
- }
-
-  
-export  let addComment = () => {
-    let newComment = {
-      id : 1,
-      text :  state.form.textUserComment,
-      date : today
-    }
-    state.comments.push(newComment)
-    state.form.textUserComment = ''
-    rerenderEntireTree(state)
-  }
-  
-
-  
-// export  let updateNewComment = (newComment) => {
-//     state.form.textUserComment = newComment
-//     rerenderEntireTree(state)
-//   }
-export  let updateNewComment = (newComment) => {
-    state.form.textUserComment = newComment
-    rerenderEntireTree(state)
   }
 
-export default state
+
+export default store
+
+  
+  
+
+
+  
+

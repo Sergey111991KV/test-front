@@ -10,7 +10,10 @@ const ModalChat = (props) => {
     return (
         
         <div className='modal_form'>
+ 
           {arrayComment}
+
+         
         </div>
     
   

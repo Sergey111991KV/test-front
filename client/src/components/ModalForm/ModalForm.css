@@ -1,14 +1,42 @@
 .modal_form {
     display: inline-grid;
     grid-template-rows: 1fr 1fr 1fr;
+   
+  
 }
 
 .input_param {
     width: 332px;
     height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 3px;
+    resize: none;
+    color: #CCCCCC;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .button_send_comment {
     width: 332px;
     height: 30px;
+    background: #4997D0;
+    border-radius: 3px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+
+.button_send_comment:active {
+    transition: 0s;
+    background: #1a75b6;
 }

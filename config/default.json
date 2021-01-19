@@ -1,3 +1,4 @@
 {
-    "port" : 5000
+    "port" : 5000,
+    "mainPhoto" : "https://boiling-refuge-66454.herokuapp.com/images/"
 }

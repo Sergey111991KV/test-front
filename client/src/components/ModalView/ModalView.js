@@ -5,6 +5,12 @@ import './ModalView.css'
 
 
 const ModalView = (props) => {
+ 
+  let closeClick = () =>  {
+    console.log('closeClick')
+    props.dispatch({type: 'SWITCH-MODAL-VIEW', value: false})
+  } 
+
     return (
       <div className={`modal_view ${props.isOpenedModal ? 'open' : 'close'}`} >
         <div className='modal_body'>
@@ -12,10 +18,10 @@ const ModalView = (props) => {
             <ModalChat comments={props.comments}/>
             <ModalForm  
                         form={props.form}
-                        addComment={props.addComment}
-                        updateNewComment={props.updateNewComment}
+                        addComment={props.dispatch}
+                        updateNewComment={props.dispatch}
             />
-            <div className='modal_close' onClick={props.stateModal}>×</div>
+            <div className='modal_close' onClick={closeClick}>×</div>
           
         </div>
       </div>

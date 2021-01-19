@@ -17,8 +17,9 @@ const ModalForm = (props) => {
 
     let newCurrenComment = React.createRef()
 
-    let changeComment = (text) => {
-        // let text = newCurrenComment.current.value
+    let changeComment = () => {
+        let text = newCurrenComment.current.value
+        console.log(text)
         props.updateNewComment(text)
     }
    
@@ -30,7 +31,8 @@ const ModalForm = (props) => {
                         value={props.form.userName}>
             </textarea>
            <textarea    className='input_param' 
-                        onChange={() => changeComment(newCurrenComment)}
+                        onChange={() => changeComment()}
+                        ref={newCurrenComment}
                         value={props.form.textUserComment}
                         >
             </textarea>
