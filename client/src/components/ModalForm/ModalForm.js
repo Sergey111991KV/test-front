@@ -2,16 +2,24 @@ import React from 'react'
 import './ModalForm.css'
 
 
+let addCommentActionCreator = () => {
+    return {
+        type: 'ADD-COMMENT'
+    }
+}
+
+
+
 const ModalForm = (props) => {
     // addComment={props.addComment}
     // updateNewComment={props.updateNewComment}
-    let addComment = () => {
-        props.addComment()
-        props.updateNewComment('')
-    }
+    // let addComment = () => {
+    //     props.addComment()
+    //     props.updateNewComment('')
+    // }
 
     let addCommentButton = () => {
-        props.addComment();
+        props.dispatch(addCommentActionCreator());
     }
 
 
@@ -27,13 +35,16 @@ const ModalForm = (props) => {
   
         <div className='modal_form'>
            <textarea    onChange 
-                        className='input_param'     
-                        value={props.form.userName}>
+                        className='input_param'
+                        placeholder="Ваше имя" 
+                        onChange={() => changeComment()}    
+                        textUserName={props.textUserName}>
             </textarea>
            <textarea    className='input_param' 
+                        placeholder="Ваш комментарий"
                         onChange={() => changeComment()}
                         ref={newCurrenComment}
-                        value={props.form.textUserComment}
+                        textUserComment={props.textUserComment}
                         >
             </textarea>
            <button  className='button_send_comment' 

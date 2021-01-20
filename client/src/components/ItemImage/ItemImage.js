@@ -1,18 +1,17 @@
 import React from 'react'
 import './ItemImage.css'
+import {openModalCreator,getTouchObjectImageCreator} from '../../redux/state'
+
+
 
 
 const ItemImage = (props) => {
 
-//   let changeComment = (text) => {
-//     // let text = newCurrenComment.current.value
-//     props.updateNewComment(text)
-// }
 
 
     let imageClick = (id) =>  {
-        console.log(id)
-        props.dispatch({type: 'SWITCH-MODAL-VIEW', value: true})
+        props.dispatch(openModalCreator(id))
+        props.dispatch(getTouchObjectImageCreator())
       } 
     return (
       <div className='imageItem' >
