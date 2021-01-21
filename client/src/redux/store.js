@@ -75,7 +75,8 @@ let store = {
         date : newDate
       }
   console.log(comment)
-  axios.post("https://boiling-refuge-66454.herokuapp.com/images/" + this._state.idTouchObjectImage + "/comments", {
+  let url =  "https://boiling-refuge-66454.herokuapp.com/images/" + this._state.idTouchObjectImage + "/comments"
+  axios.post(url, {
     comment
       }).then(response => 
         console.log(response.data),

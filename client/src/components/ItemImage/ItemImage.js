@@ -1,6 +1,6 @@
 import React from 'react'
 import './ItemImage.css'
-import {openModalCreator,getTouchObjectImageCreator} from '../../redux/state'
+import {openModalCreator,getTouchObjectImageCreator} from '../../redux/store'
 
 
 

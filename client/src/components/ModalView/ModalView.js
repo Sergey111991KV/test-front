@@ -2,7 +2,7 @@ import React from 'react'
 import ModalChat from '../ModalChat/ModalChat';
 import ModalForm from '../ModalForm/ModalForm';
 import './ModalView.css'
-import {closeModalViewCreator} from '../../redux/state'
+import {closeModalViewCreator} from '../../redux/store'
 
 
 const ModalView = (props) => {

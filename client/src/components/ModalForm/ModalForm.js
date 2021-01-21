@@ -62,7 +62,7 @@
 
   import React from 'react'
 import './ModalForm.css'
-import {updateNameUserCreator,updateTextCommentCreator,sendCommentCreator} from '../../redux/state'
+import {updateNameUserCreator,updateTextCommentCreator,sendCommentCreator} from '../../redux/store'
 
 
 

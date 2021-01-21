@@ -2,7 +2,7 @@
 import React from 'react'
 import ItemImage from '../ItemImage/ItemImage'
 import './ListImage.css'
-import {getImageCreator} from '../../redux/state'
+import {getImageCreator} from '../../redux/store'
 
 
    
