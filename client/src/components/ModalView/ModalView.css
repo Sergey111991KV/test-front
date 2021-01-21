@@ -29,7 +29,6 @@
     transform: translate(-50%, -50%);
     background: white;
     display: grid;
-    grid-template-columns: 60% 40%;
     grid-column-gap: 30px;
     grid-row-gap: 14px;
     padding: 30px;
@@ -46,17 +45,39 @@
 
 @media (max-width: 630px) {
     .modal_body{
-        width: 100vw;
-  height: 100vh;
+        width: auto;
+        height: auto;
+        display: grid;
+        grid-template-rows:  1fr ;  
+        grid-template-columns:   1fr ;   
+        grid-template-areas:    "image_comment "
+                                "chat"
+                                "input_form    ";
+        /* width: 100vw; */
+        
+    }
+
+    .modal_close {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+      
+        /* font-style: lighter;
+        font-weight: lighter;
+        font-size: 32px;
+        line-height: 22px; */
+    }
+    .image_modal {
+        width: 3310px;
+        height: 205px;
     }
 }
 
 .image_modal {
-
     width: 331px;
     height: 205px;
-    /* left: 30px;
-    top: 30px; */
 }
 
 

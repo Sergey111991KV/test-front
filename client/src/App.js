@@ -14,7 +14,10 @@ function App (props) {
                   dispatch={props.dispatch}
                   />
       <Footer />
-      <ModalView  isOpenedModal={props.appState.isOpenedModal} 
+      <ModalView  
+                  textUserName = {props.appState.textUserName}
+                  textUserComment={props.appState.textUserComment}
+                  isOpenedModal={props.appState.isOpenedModal} 
                   touchObjectImage={props.appState.touchObjectImage} 
                   dispatch={props.dispatch}        
       ></ModalView>

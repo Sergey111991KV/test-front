@@ -68,26 +68,16 @@ import {updateNameUserCreator,updateTextCommentCreator,sendCommentCreator} from 
 
 
 const ModalForm = (props) => {
-    // addComment={props.addComment}
-    // updateNewComment={props.updateNewComment}
-    // let addComment = () => {
-    //     props.addComment()
-    //     props.updateNewComment('')
-    // }
 
 
-    let newCurrenUser = React.createRef()
-    let newCurrenComment = React.createRef()
-
-    let changeNameUser = () => {
-        let name = newCurrenUser.current.value
-        console.log(name)
-        props.dispatch(updateNameUserCreator(name))
+    let changeNameUser = (e) => {
+        let body = e.target.value
+        props.dispatch(updateNameUserCreator(body))
     }
 
-    let changeComment = () => {
-        let comment = newCurrenComment.current.value
-        props.dispatch(updateTextCommentCreator(comment))
+    let changeComment = (e) => {
+        let body = e.target.value
+        props.dispatch(updateTextCommentCreator(body))
     }
 
     let addCommentButton = () => {
@@ -100,16 +90,13 @@ const ModalForm = (props) => {
            <textarea    onChange 
                         className='input_param'
                         placeholder="Ваше имя" 
-                        ref={newCurrenUser}
-                        onChange={() => changeNameUser()} 
+                        onChange={ changeNameUser} 
                         value={props.textUserName}   
-                        // textUserName={props.textUserName}
                         >
             </textarea>
            <textarea    className='input_param' 
                         placeholder="Ваш комментарий"
-                        onChange={() => changeComment()}
-                        ref={newCurrenComment}
+                        onChange={ changeComment}
                         value={props.textUserComment}
                         >
             </textarea>

@@ -58,39 +58,34 @@ let store = {
   },
 
   _updateNameUser (name) {
-    console.log(name)
     this._state.textUserName = name
     this._callSubscruber(this._state)
   },
 
   _updateTextComment (comment) {
-    console.log(comment)
   this._state.textUserComment = comment
   this._callSubscruber(this._state)
   },
 
   _sendComment () {
   let newDate = new Date().getTime()
-  let newComment = { 
+  let comment = { 
         id : 153, // ? id 
         text :   this._state.textUserComment,
         date : newDate
       }
-    
+  console.log(comment)
   axios.post("https://boiling-refuge-66454.herokuapp.com/images/" + this._state.idTouchObjectImage + "/comments", {
-      newComment
+    comment
       }).then(response => 
-       
-        console.log(response.data))
+        console.log(response.data),
+        )
       .catch(error => 
-     
         console.log(error));
   this._state.textUserComment = ''
   this._state.textUserName = ''
   this._callSubscruber(this._state)
-  console.log("aaaaa")
   },
-
 
 _closeModalView () {
   this._state.isOpenedModal = false

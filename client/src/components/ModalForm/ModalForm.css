@@ -5,6 +5,15 @@
   
 }
 
+@media (max-width: 630px) {
+    .modal_form {
+        display: inline-grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        column-gap: 20px;
+      
+    }
+}
+
 .input_param {
     width: 332px;
     height: 30px;
@@ -19,6 +28,11 @@
     display: flex;
     align-items: center;
 }
+
+
+
+
+
 
 .button_send_comment {
     width: 332px;
