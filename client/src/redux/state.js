@@ -1,17 +1,13 @@
 import axios from 'axios'
 
 
-
-
 const GET_IMAGE = 'GET-IMAGE'
 const OPEN_MODAL_VIEW = 'OPEN-MODAL-VIEW'
 const GET_COMMENTS = 'GET-COMMENTS'
-const CHANGE_TEXT_NAME = 'CHANGE-TEXT-NAME'
-const CHANGE_TEXT_COMMENT = 'CHANGE-TEXT-COMMENT'
+const UPDATE_TEXT_NAME = 'UPDATE-TEXT-NAME'
+const UPDATE_TEXT_COMMENT = 'UPDATE-TEXT-COMMENT'
 const SEND_COMMENT = 'SEND-COMMENT'
 const CLOSE_MODAL = 'CLOSE-MODAL'
-
-
 
 
 let store = {
@@ -24,7 +20,7 @@ let store = {
         id : 0,
         url : "",
         comments  : [
-            {id:153, text: "Крутая фотка", date: "1578054737927"}   
+            // {id:153, text: "Крутая фотка", date: "1578054737927"}   
         ]
       },
     idTouchObjectImage: 0 ,
@@ -34,17 +30,12 @@ let store = {
       console.log('state was change')
     },
 
-
-
   getState (){
     return this._state
   },
   subscribe (observer) {
     this._callSubscruber = observer
   },
-
-
-                              // ------- //
 
   _getImage () {
       axios.get('https://boiling-refuge-66454.herokuapp.com/images').then(response => {
@@ -66,34 +57,38 @@ let store = {
     }) 
   },
 
-_updateTextComment (newComment) {
-  this.state.textUserComment = newComment
+  _updateNameUser (name) {
+    console.log(name)
+    this._state.textUserName = name
+    this._callSubscruber(this._state)
+  },
+
+  _updateTextComment (comment) {
+    console.log(comment)
+  this._state.textUserComment = comment
   this._callSubscruber(this._state)
-},
-_updateNameUser (newUser) {
-  this.state.textUserName = newUser
-  this._callSubscruber(this._state)
-},
+  },
 
-
-
-
-_sendComment () {
-  let today = new Date().toISOString().slice(0, 10)
-  let newComment = {
-        id : 1,
-        text :  this._state.textUserComment,
-        date : today
+  _sendComment () {
+  let newDate = new Date().getTime()
+  let newComment = { 
+        id : 153, // ? id 
+        text :   this._state.textUserComment,
+        date : newDate
       }
-  const funcSendObject = () => {    
-    axios.post("https://boiling-refuge-66454.herokuapp.com/images/" + this._state.idTouchObjectImage + "/comments", {
+    
+  axios.post("https://boiling-refuge-66454.herokuapp.com/images/" + this._state.idTouchObjectImage + "/comments", {
       newComment
-      }).then(response => console.log(response.data))
-      .catch(error => console.log(error));
-    }
-    funcSendObject()
-  this.state.form.textUserComment = ''
+      }).then(response => 
+       
+        console.log(response.data))
+      .catch(error => 
+     
+        console.log(error));
+  this._state.textUserComment = ''
+  this._state.textUserName = ''
   this._callSubscruber(this._state)
+  console.log("aaaaa")
   },
 
 
@@ -106,42 +101,46 @@ _closeModalView () {
         {id:153, text: "Крутая фотка", date: "1578054737927"}   
     ]
   }
-  
   this._state.touchObjectImage = defaultObject 
   this._state.idTouchObjectImage = "" 
   this._callSubscruber(this._state)
   },
-   dispatch(action){
-    switch (action.type) {
-      case GET_IMAGE:
-        this._getImage()
-        break;
-      case OPEN_MODAL_VIEW:
-            this._openModalView(action.id)
-        break;
-      case GET_COMMENTS:
-              this._getTouchObjectImage()
-        break;
-      case CLOSE_MODAL:
-                this._closeModalView()
-        break;
-      default:
-        break;
-        
-    // } (action.type === OPEN_MODAL_VIEW){
-    //       this._openModalView(action.value);
-    //   }
-    //   else if (action.type === GET_IMAGE) {
-    //       this._getImage()
-      }
-       
-      }
 
+  dispatch(action){
+    switch (action.type) {
+        case GET_IMAGE:
+            this._getImage()
+            break;
+        case OPEN_MODAL_VIEW:
+            this._openModalView(action.id)
+            break;
+        case GET_COMMENTS:
+            this._getTouchObjectImage()
+            break;
+        case UPDATE_TEXT_NAME:
+            this._updateNameUser(action.name)
+            break;
+        case UPDATE_TEXT_COMMENT:
+            this._updateTextComment(action.comment)
+            break;
+        case SEND_COMMENT:
+            this._sendComment()
+            break;
+        case CLOSE_MODAL:
+            this._closeModalView()
+            break;
+        default:
+            break;
+          }
+       }
     }
   
 export const openModalCreator = (id) => ({type: OPEN_MODAL_VIEW, id: id}) 
 export const getImageCreator = () => ({type: GET_IMAGE}) 
 export const getTouchObjectImageCreator = () => ({type: GET_COMMENTS}) 
+export const updateNameUserCreator = (text) => ({type: UPDATE_TEXT_NAME, name: text}) 
+export const updateTextCommentCreator = (comment) => ({type: UPDATE_TEXT_COMMENT, comment: comment}) 
+export const sendCommentCreator = () => ({type: SEND_COMMENT}) 
 export const closeModalViewCreator = () => ({type: CLOSE_MODAL}) 
 
 export default store

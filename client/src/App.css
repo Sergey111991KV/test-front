@@ -10,14 +10,3 @@
 
   
 }
-
- /* @media (max-width: 510px) {
-    app-wrapper{
-        grid-template-rows: 81px 1fr 174px;  
-        grid-template-columns:   1fr;  
-        grid-template-areas:    " header"
-                                "    list"
-                                "  footer"
-        ; 
-    }
-}  */
